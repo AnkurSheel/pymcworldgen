@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 
 """
 
@@ -27,6 +27,8 @@ from layer import *
 from landmark import *
 from saveutils import *
 
+from subprocess import Popen
+
 def namedModule(name):
     """Return a module given its name."""
     try:
@@ -47,7 +49,8 @@ def filtertest(modulename="default"):
 
     testworld = createWorld("nuclai.world")
     # cool seeds: 12397
-    worldseed = random.randint(0, 65535)
+    #worldseed = random.randint(0, 65535)
+    worldseed = 12397
     worldsizex = 8
     worldsizez = 8
     print("World seed is", worldseed)
@@ -83,4 +86,4 @@ if __name__ == "__main__":
         filtertest()
     
     print("Generation complete.")
-
+    Popen("mapcrafter.bat")
