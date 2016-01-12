@@ -60,12 +60,12 @@ def build(worldseed, worldobj):
                             replaceid = worldobj.materials.Sand.ID) # replace dirt with sandy shores 
     tfilter = WaterLevelFilter(tfilter) # water level at 64
     tfilter = TopSoilFilter(tfilter, 
-                            rangetop = 84, thickness = 5, 
+                            rangetop = 84, thickness = 1, 
                             findid = worldobj.materials.Dirt.ID,
                             replaceid = MAT_GRASS) # Replace top dirt with grass
         
     tfilter = WaterLevelFilter(tfilter) # water level at 64
-    tfilter = Landmark(tfilter, worldseed, 0, 0) # a single landmark
+    #tfilter = Landmark(tfilter, worldseed, 0, 0) # a single landmark
     tfilter = CacheFilter(tfilter) # since LandmarkGenerator requests chunks multiple times, this is generally needed.
     tfilter = LandmarkGenerator(tfilter, worldseed, landmarklist = [StaticTreeLandmark(None)], density = 2500)
 
