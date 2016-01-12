@@ -1,4 +1,4 @@
-#TODO: we don't need half of these imports
+﻿#TODO: we don't need half of these imports
 #TODO: maybe should not need reference to world object?
 
 import random
@@ -51,7 +51,7 @@ def build(worldseed, worldobj):
 
     tfilter = Filter(tfilter) # passthru filter
     tfilter = TopSoilFilter(tfilter, 
-                            rangetop = 85, thickness = 5,
+                            rangetop = 85, thickness = 1,
                             findid = worldobj.materials.Stone.ID,
                             replaceid = MAT_DIRT) # Replace top rock with dirt
     tfilter = WaterLevelFilter(tfilter,
@@ -60,7 +60,7 @@ def build(worldseed, worldobj):
                             replaceid = worldobj.materials.Sand.ID) # replace dirt with sandy shores 
     tfilter = WaterLevelFilter(tfilter) # water level at 64
     tfilter = TopSoilFilter(tfilter, 
-                            rangetop = 84, thickness = 1, 
+                            rangetop = 84, thickness = 5, 
                             findid = worldobj.materials.Dirt.ID,
                             replaceid = MAT_GRASS) # Replace top dirt with grass
         
@@ -70,7 +70,7 @@ def build(worldseed, worldobj):
     tfilter = LandmarkGenerator(tfilter, worldseed, landmarklist = [StaticTreeLandmark(None)], density = 2500)
 
     tfilter = SnowCoverFilter(tfilter, 
-                            rangebottom = 82, 
+                            rangebottom = 64 + 10, 
                             rangetop = 64 + 30 + 1,
                             thickness = 1, 
                             snowid = worldobj.materials.Snow.ID) # Cake snow on top of stuff
